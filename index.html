@@ -1,86 +1,166 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piattaforma Etica – Menù</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: url('sfondo.png') no-repeat center/cover;
-    color: #111;
-    text-align: center;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piattaforma Etica — Menù</title>
+  <style>
+    :root{
+      --green:#38a169;
+      --red:#ef4444;
+      --header:#c8e08c;
+      --box:#d0d3ff;
+      --footer:#c8e08c;
+      --text:#111;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Arial", Helvetica, sans-serif;
+      color:var(--text);
+      background: #f5f5f5 url('sfondo.png') center/cover no-repeat;
+      -webkit-font-smoothing:antialiased;
+    }
 
-  header {
-    background: #c8e08c;
-    padding: 1rem;
-    font-size: 1.2rem;
-  }
-  header a { color: #111; text-decoration: underline; }
+    header{
+      background:var(--header);
+      padding:14px 12px;
+      text-align:center;
+      font-weight:700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    header a{ color:var(--text); text-decoration:none; font-size:1rem; font-weight: bold; background: rgba(0,0,0,0.05); padding: 6px 12px; border-radius: 30px;}
+    
+    /* Pulsante musica nell'header */
+    .music-btn {
+      background: #38a169;
+      border: none;
+      color: white;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: 0.1s;
+    }
+    .music-btn:active { transform: scale(0.97); }
 
-  h1 { margin-top: 2rem; }
+    .container{
+      max-width:var(--maxw);
+      margin: 30px auto;
+      padding: 0 16px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+      align-items:start;
+    }
 
-  .box {
-    background: #d0d3ff;
-    margin: 2rem auto;
-    padding: 1rem;
-    max-width: 500px;
-    border-radius: 8px;
-  }
+    .hero h1{
+      font-size:2.5rem;
+      margin:6px 0 6px;
+      line-height:1.05;
+    }
+    .menu-box{
+      background:var(--box);
+      border-radius:8px;
+      padding:28px 20px;
+      max-width:680px;
+    }
+    .menu-box h2{ margin-top:0; font-size:1.4rem; text-align:center; }
+    .menu-box ul{
+      list-style: none;
+      padding: 0;
+    }
+    .menu-box li{
+      margin: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding-bottom: 12px;
+    }
+    .menu-box a{
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2b4e2d;
+      display: block;
+    }
+    .menu-box a small{
+      font-size: 0.8rem;
+      font-weight: normal;
+      color: #3a3a3a;
+      display: block;
+      margin-top: 6px;
+    }
 
-  .buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  .buttons a {
-    display: block;
-    padding: 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #111;
-  }
-  .giallo { background:#fff59d; }
-  .rosa   { background:#f8bbd0; }
+    .sidebar{
+      text-align:center;
+      padding-top:12px;
+    }
+    .sidebar img{
+      max-width:100%;
+      width:260px;
+      height:auto;
+      border-radius:6px;
+      background:#fff;
+      box-shadow:0 6px 20px rgba(0,0,0,0.06);
+    }
 
-  footer {
-    background: #c8e08c;
-    padding: 1rem;
-    font-size: 0.9rem;
-    margin-top: 2rem;
-  }
-  footer a { color:#111; text-decoration: underline; }
-  .logo {
-    margin-top: 1rem;
-    max-width: 220px;
-  }
-</style>
+    footer{
+      background:var(--footer);
+      padding:12px 8px;
+      margin-top:34px;
+      text-align:center;
+      font-size:0.95rem;
+    }
+    footer a{ color:var(--text); text-decoration:underline; margin:0 8px; font-weight:600; }
+
+    @media (max-width:900px){
+      .container{ grid-template-columns: 1fr; }
+      .hero h1{ text-align:center; }
+      .menu-box{ margin: 0 auto; }
+      .sidebar{ order:-1; }
+      .sidebar img{ width:200px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- AUDIO NASCOSTO CON LINK DEFINITIVO JUKEHOST -->
+  <audio id="canonePlayer" loop preload="auto">
+    <source src="https://audio.jukehost.co.uk/019df9eb-9bf1-73be-abb8-5ba8f0d5f24d" type="audio/mpeg">
+  </audio>
+
   <header>
-    <a href="https://antonello2907.github.io/piattaforma-etica/">Home Page</a>
+    <a href="https://antonello2907.github.io/piattaforma-etica/">🏠 Home</a>
+    <span style="font-size:1.2rem;">📋 MENÙ PRINCIPALE</span>
+    <button id="musicButton" class="music-btn">🎵 Ascolta il Canone</button>
   </header>
 
-  <h1>Menù Principale</h1>
+  <main class="container">
+    <section class="hero">
+      <div class="menu-box">
+        <h2>Navigazione del sito</h2>
+        <ul>
+          <li><a href="https://antonello2907.github.io/piattaforma-etica/">🏠 Home <small>Ritorna alla pagina principale</small></a></li>
+          <li><a href="https://antonello2907.github.io/questionario-etico/">📋 Questionario Etico <small>Partecipa e condividi il tuo pensiero</small></a></li>
+          <li><a href="https://antonello2907.github.io/visione-valori/">🔎 Visione & Valori <small>Scopri i principi della comunità</small></a></li>
+          <li><a href="https://antonello2907.github.io/contatti/">✉️ Contatti</a></li>
+          <li><a href="https://antonello2907.github.io/privacy/">🔒 Privacy</a></li>
+          <li><a href="https://antonello2907.github.io/cookie-policy/">🍪 Cookie Policy</a></li>
+          <li><a href="https://antonello2907.github.io/termini/">📜 Termini</a></li>
+        </ul>
+      </div>
+    </section>
 
-  <div class="box">
-    
-    <div class="buttons">
-      <a class="rosa" href="https://antonello2907.github.io/profilo-utente-talento/">Profilo Utente & Talento</a>
-      <a class="rosa" href="https://antonello2907.github.io/questionario-etico/">Questionario Etico</a>
-      <a class="giallo" href="https://antonello2907.github.io/bacheca-dei-talenti/">Bacheca dei Talenti</a>
-      <a class="rosa" href="https://antonello2907.github.io/contatti-e-supporto/">Contatti & Supporto</a>
-      <a class="giallo" href="https://antonello2907.github.io/corsi-materiali/">Corsi & Materiali Gratuiti</a>
-      <a class="rosa" href="https://antonello2907.github.io/visione-valori/">Visione e Valori</a>
-    </div>
-  </div>
-
-  <img src="immagine1.jpg" alt="Logo Piattaforma Etica" class="logo">
+    <aside class="sidebar" aria-label="Logo">
+      <img src="immagine1.jpg" alt="Logo Piattaforma Etica">
+    </aside>
+  </main>
 
   <footer>
     © 2025 Piattaforma Etica |
@@ -89,9 +169,35 @@
     <a href="https://antonello2907.github.io/cookie-policy/">Cookie</a> |
     <a href="https://antonello2907.github.io/termini/">Termini</a>
   </footer>
+
+  <script>
+    (function() {
+      var audio = document.getElementById('canonePlayer');
+      var button = document.getElementById('musicButton');
+      
+      if (audio) audio.load();
+      
+      if (button) {
+        button.addEventListener('click', function() {
+          if (!audio) return;
+          
+          var playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(function() {
+              button.textContent = '🎵 In riproduzione...';
+              button.disabled = true;
+              button.style.opacity = '0.6';
+              button.style.cursor = 'default';
+            }).catch(function(error) {
+              console.error('Errore audio:', error);
+              button.textContent = '⚠️ Errore audio';
+              button.style.background = '#ef4444';
+            });
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
-
-
-
-
