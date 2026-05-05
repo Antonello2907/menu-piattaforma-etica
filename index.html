@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -28,28 +29,8 @@
       padding:14px 12px;
       text-align:center;
       font-weight:700;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
     }
-    header a{ color:var(--text); text-decoration:none; font-size:1rem; font-weight: bold; background: rgba(0,0,0,0.05); padding: 6px 12px; border-radius: 30px;}
-    
-    /* Pulsante musica nell'header */
-    .music-btn {
-      background: #38a169;
-      border: none;
-      color: white;
-      font-size: 0.8rem;
-      padding: 6px 14px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-      transition: 0.1s;
-    }
-    .music-btn:active { transform: scale(0.97); }
+    header a{ color:var(--text); text-decoration:none; font-size:1rem; }
 
     .container{
       max-width:var(--maxw);
@@ -126,11 +107,28 @@
       .sidebar{ order:-1; }
       .sidebar img{ width:200px; }
     }
+
+    /* Stile pulsante musica identico alla home */
+    .music-btn {
+      background: #38a169;
+      border: none;
+      color: white;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 15px;
+      vertical-align: middle;
+    }
+    .music-btn:active {
+      transform: scale(0.97);
+    }
   </style>
 </head>
 <body>
 
-  <!-- AUDIO NASCOSTO CON LINK DEFINITIVO JUKEHOST -->
+  <!-- AUDIO (stesso link JukeHost della home) -->
   <audio id="canonePlayer" loop preload="auto">
     <source src="https://audio.jukehost.co.uk/019df9eb-9bf1-73be-abb8-5ba8f0d5f24d" type="audio/mpeg">
   </audio>
@@ -191,7 +189,7 @@
               button.style.cursor = 'default';
             }).catch(function(error) {
               console.error('Errore audio:', error);
-              button.textContent = '⚠️ Errore audio';
+              button.textContent = '⚠️ Errore';
               button.style.background = '#ef4444';
             });
           }
