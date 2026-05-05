@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piattaforma Etica — Menù</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piattaforma Etica — Home</title>
   <style>
     :root{
       --green:#38a169;
@@ -21,6 +21,7 @@
       color:var(--text);
       background: #f5f5f5 url('sfondo.png') center/cover no-repeat;
       -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
     header{
@@ -41,42 +42,48 @@
       align-items:start;
     }
 
+    .hero{
+      text-align:left;
+    }
     .hero h1{
-      font-size:2.5rem;
+      font-size:3rem;
       margin:6px 0 6px;
       line-height:1.05;
     }
+    .hero p.lead{
+      margin:0 0 20px;
+      font-size:1.15rem;
+      color:#222;
+    }
+
     .menu-box{
       background:var(--box);
       border-radius:8px;
-      padding:28px 20px;
+      padding:18px;
       max-width:680px;
     }
-    .menu-box h2{ margin-top:0; font-size:1.4rem; text-align:center; }
-    .menu-box ul{
-      list-style: none;
-      padding: 0;
-    }
-    .menu-box li{
-      margin: 16px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      padding-bottom: 12px;
-    }
-    .menu-box a{
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #2b4e2d;
-      display: block;
-    }
-    .menu-box a small{
-      font-size: 0.8rem;
-      font-weight: normal;
-      color: #3a3a3a;
-      display: block;
-      margin-top: 6px;
-    }
+    .menu-box h2{ margin:0 0 8px; font-size:1.1rem; text-align:center; text-decoration:underline; }
+    .menu-box p{ line-height:1.6; margin:8px 0 14px; }
 
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:flex-start;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:24px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:700;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+    }
+    .btn.green{ background:var(--green); }
+    .btn.red{ background:var(--red); }
+
+    /* Sidebar logo */
     .sidebar{
       text-align:center;
       padding-top:12px;
@@ -90,6 +97,7 @@
       box-shadow:0 6px 20px rgba(0,0,0,0.06);
     }
 
+    /* Footer */
     footer{
       background:var(--footer);
       padding:12px 8px;
@@ -99,62 +107,46 @@
     }
     footer a{ color:var(--text); text-decoration:underline; margin:0 8px; font-weight:600; }
 
+    /* Responsive */
     @media (max-width:900px){
       .container{ grid-template-columns: 1fr; }
-      .hero h1{ text-align:center; }
+      .hero h1{ font-size:2.4rem; text-align:center; }
+      .hero p.lead{ text-align:center; }
       .menu-box{ margin: 0 auto; }
       .sidebar{ order:-1; }
       .sidebar img{ width:200px; }
-    }
-
-    /* Stile pulsante musica identico alla home */
-    .music-btn {
-      background: #38a169;
-      border: none;
-      color: white;
-      font-size: 0.8rem;
-      padding: 6px 14px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-left: 15px;
-      vertical-align: middle;
-    }
-    .music-btn:active {
-      transform: scale(0.97);
+      .actions{ justify-content:center; }
+      header a{ font-size:0.95rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- AUDIO (stesso link JukeHost della home) -->
-  <audio id="canonePlayer" loop preload="auto">
-    <source src="https://audio.jukehost.co.uk/019df9eb-9bf1-73be-abb8-5ba8f0d5f24d" type="audio/mpeg">
-  </audio>
-
   <header>
-    <a href="https://antonello2907.github.io/piattaforma-etica/">🏠 Home</a>
-    <span style="font-size:1.2rem;">📋 MENÙ PRINCIPALE</span>
-    <button id="musicButton" class="music-btn">🎵 Ascolta il Canone</button>
+    <a href="https://antonello2907.github.io/menu-piattaforma-etica/">Menù</a>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div class="menu-box">
-        <h2>Navigazione del sito</h2>
-        <ul>
-          <li><a href="https://antonello2907.github.io/piattaforma-etica/">🏠 Home <small>Ritorna alla pagina principale</small></a></li>
-          <li><a href="https://antonello2907.github.io/questionario-etico/">📋 Questionario Etico <small>Partecipa e condividi il tuo pensiero</small></a></li>
-          <li><a href="https://antonello2907.github.io/visione-valori/">🔎 Visione & Valori <small>Scopri i principi della comunità</small></a></li>
-          <li><a href="https://antonello2907.github.io/contatti/">✉️ Contatti</a></li>
-          <li><a href="https://antonello2907.github.io/privacy/">🔒 Privacy</a></li>
-          <li><a href="https://antonello2907.github.io/cookie-policy/">🍪 Cookie Policy</a></li>
-          <li><a href="https://antonello2907.github.io/termini/">📜 Termini</a></li>
-        </ul>
+      <h1>Benvenuto nella Nostra Comunità Etica</h1>
+      <p class="lead">“Inizia il tuo percorso etico con noi.”</p>
+
+      <div class="menu-box" aria-labelledby="menutitle">
+        
+        <p>
+          Piattaforma Etica — Costruire · Imparare · Donare
+        </p>
+
+        <div class="actions">
+          <!-- Sostituisci i link con i nomi file esatti delle tue pagine -->
+          <a class="btn green" href="https://antonello2907.github.io/questionario-etico/">📋 Compila il Questionario</a>
+          <a class="btn red" href="https://antonello2907.github.io/visione-valori/">🔎 Scopri la Visione</a>
+        </div>
       </div>
     </section>
 
     <aside class="sidebar" aria-label="Logo">
+      <!-- Carica logo.png nella root del repo (o cambia il percorso) -->
       <img src="immagine1.jpg" alt="Logo Piattaforma Etica">
     </aside>
   </main>
@@ -167,34 +159,5 @@
     <a href="https://antonello2907.github.io/termini/">Termini</a>
   </footer>
 
-  <script>
-    (function() {
-      var audio = document.getElementById('canonePlayer');
-      var button = document.getElementById('musicButton');
-      
-      if (audio) audio.load();
-      
-      if (button) {
-        button.addEventListener('click', function() {
-          if (!audio) return;
-          
-          var playPromise = audio.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(function() {
-              button.textContent = '🎵 In riproduzione...';
-              button.disabled = true;
-              button.style.opacity = '0.6';
-              button.style.cursor = 'default';
-            }).catch(function(error) {
-              console.error('Errore audio:', error);
-              button.textContent = '⚠️ Errore';
-              button.style.background = '#ef4444';
-            });
-          }
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
